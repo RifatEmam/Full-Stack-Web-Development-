@@ -1,26 +1,26 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Laravel\Fortify\Features;
+use App\Http\Controllers\ProductController;
 
-Route::inertia('/', 'welcome', [
-    'canRegister' => Features::enabled(Features::registration()),
-])->name('home');
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::inertia('dashboard', 'dashboard')->name('dashboard');
-});
+Route::get('/', [ProductController::class, 'index'])->name('home');
 
-require __DIR__.'/settings.php';
 
-Route :: get('/',function(){
-    return "fuck  page ";
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+
+
+Route::prefix('admin')->group(function(){
+    Route::resource('products', ProductController::class);
 });
 
 
-Route :: get('/demo',function(){
-    return view ('Demo');
-});
-route:: any('/test',function(){
-echo "testing the Route";
+Route::get('/demo', function () {
+    $product = (object) [
+        'name' => 'Premium Quality Laptop',
+        'price' => '75000',
+        'description' => 'This is a high-performance laptop perfect for your business and personal needs. Order now for the best price!',
+    ];
+
+    return view('Show', compact('product'));
 });
