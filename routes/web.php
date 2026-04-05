@@ -16,11 +16,26 @@ Route::prefix('admin')->group(function(){
 
 
 Route::get('/demo', function () {
-    $product = (object) [
-        'name' => 'Premium Quality Laptop',
-        'price' => '75000',
-        'description' => 'This is a high-performance laptop perfect for your business and personal needs. Order now for the best price!',
+    $products = [
+        (object) [
+            'name' => 'Premium Quality Laptop',
+            'price' => '75000',
+            'description' => 'High-performance laptop for your business.',
+            'image' => 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500'
+        ],
+        (object) [
+            'name' => 'Wireless Mouse',
+            'price' => '1200',
+            'description' => 'Ergonomic wireless mouse with smooth tracking.',
+            'image' => 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500'
+        ],
+        (object) [
+            'name' => 'Mechanical Keyboard',
+            'price' => '4500',
+            'description' => 'RGB backlit mechanical keyboard for typing speed.',
+            'image' => 'https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=500'
+        ],
     ];
 
-    return view('Show', compact('product'));
+    return view('Show', compact('products'));
 });
