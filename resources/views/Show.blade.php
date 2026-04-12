@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'Product Gallery')
+@section('title', 'Rifat Gadget Gallary')
 
 @section('content')
 <div class="row">
