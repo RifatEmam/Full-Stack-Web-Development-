@@ -1,4 +1,12 @@
-"scripts": {
-    "build": "echo 'Skipping build...'",
-    "production": "echo 'Skipping build...'"
+{
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "echo 'Skipping build...'"
+    },
+    "devDependencies": {
+        "axios": "^1.7.4",
+        "laravel-vite-plugin": "^1.0",
+        "vite": "^5.0"
+    }
 }
