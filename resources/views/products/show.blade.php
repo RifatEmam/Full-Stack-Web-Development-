@@ -5,7 +5,7 @@
 @section('content')
 <div class="container py-5">
     @php
-        // ডামি প্রোডাক্ট ডাটা যাতে কোনো এরর না আসে
+        // টেস্ট করার জন্য একটি রিয়েল প্রফেশনাল ল্যাপটপের ডামি ডাটা সেট করা হয়েছে
         $dummy_product = [
             'name' => 'HP Pavilion 15 Core i5 13th Gen Laptop',
             'price' => 76500,
@@ -18,14 +18,15 @@
                 'Graphics' => 'Intel Iris Xe Graphics',
                 'Display' => '15.6" Diagonal, FHD (1920 x 1080), IPS, Micro-edge, Anti-glare',
                 'Operating System' => 'Windows 11 Home Genuine',
+                'Battery' => '3-cell, 41 Wh Li-ion, Up to 7 hours battery life',
                 'Warranty' => '2 Years International Warranty'
             ]
         ];
     @endphp
 
     <div class="mb-4">
-        <a href="{{ url('/') }}" class="btn btn-outline-dark fw-bold btn-sm">
-            ← Back to Home
+        <a href="{{ route('products.index') }}" class="btn btn-outline-dark fw-bold btn-sm">
+            ← Back to Products
         </a>
     </div>
 
@@ -38,16 +39,21 @@
 
         <div class="col-md-7 px-md-4">
             <h2 class="fw-bold text-dark mb-2">{{ $dummy_product['name'] }}</h2>
+            
             <div class="mb-3">
                 <span class="badge bg-success">In Stock</span>
                 <span class="badge bg-primary">Official Warranty</span>
             </div>
+
             <div class="p-3 bg-light rounded mb-3">
+                <span class="text-muted small d-block">Price:</span>
                 <span class="text-danger fw-bold h3 mb-0">৳{{ number_format($dummy_product['price']) }}</span>
             </div>
+
             <p class="text-muted mb-4" style="line-height: 1.6;">
                 {{ $dummy_product['description'] }}
             </p>
+
             <div class="d-flex gap-3">
                 <button class="btn btn-danger btn-lg px-5 fw-bold" style="background-color: #ef4a23; border: none;">Buy Now</button>
                 <button class="btn btn-dark btn-lg px-4 fw-bold" style="background-color: #111b24;">Add to Cart</button>
